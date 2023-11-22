@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>rent-cars</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        /* Стили для заголовков */
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+        /* Стили для четных строк */
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Стили для наведения курсора на строку */
+        tr:hover {
+            background-color: #ddd;
+        }
+
+
+    </style>
+</head>
+<body>
+
+
+<table class="simple-table">
+    <thead>
+    <tr>
+        <th>model</th>
+        <th>price</th>
+        <th>rent</th>
+        <th>pickupDate</th>
+        <th>returnDate</th>
+        <th></th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="forCar : ${getCar}">
+
+        <td th:text="${forCar.model}"></td>
+        <td th:text="${forCar.price}"></td>
+        <td th:text="${forCar.available}"></td>
+        <td th:text="${forCar.pickupDate}"></td>
+        <td th:text="${forCar.returnDate}"></td>
+
+
+        <td>
+            <form style="display: table" th:action="@{/car/{id}(id = ${forCar.getId()})}" th:method="GET">
+                <button style="float: revert" name="action" value="blue">
+                    <img id="myImage" class="car-image" th:src="${forCar.pathImg}" th:alt="${forCar.model}">
+                </button>
+            </form>
+
+        </td>
+
+    </tr>
+    </tbody>
+
+</table>
+
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+
+</head>
+<style>
+
+    body {
+        background-image: url('https://storage.kun.uz/source/4/uUUfOzPnASOD-4t6hj0i_r_m_GauRmyZ.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+
+    .login-button, .register-button {
+        background-color: white;
+        color: black;
+        padding: 40px 40px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        margin: 40px;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .login-button:hover, .register-button:hover {
+        background-color: #0077cc;
+        transform: scale(1.1);
+    }
+
+
+</style>
+<body>
+
+<div class="button-container">
+    <form action="/login">
+        <button class="login-button">Вход</button>
+    </form>
+    <form action="/register">
+        <button class="register-button">Регистрация</button>
+    </form>
+
+</div>
+
+
+</body>
+</html>
